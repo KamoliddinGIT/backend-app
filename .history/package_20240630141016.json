@@ -4,11 +4,11 @@
   "description": "backend app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [
     "expressjs"
+    "dev": "nodemon app.js" 
   ],
   "author": "SIREDEV",
   "license": "ISC",
@@ -16,7 +16,6 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
     "nodemon": "^3.1.4"
   }
 }

@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js" 
+
   },
   "keywords": [
     "expressjs"
@@ -16,7 +17,6 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
     "nodemon": "^3.1.4"
   }
 }
