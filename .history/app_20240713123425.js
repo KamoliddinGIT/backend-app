@@ -1,9 +1,6 @@
-require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const postModel = require("./models/post.model");
-
 const app = express();
 
 app.use(express.json());
@@ -40,7 +37,6 @@ app.put("/:id", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-const DB_URL = `mongodb+srv://bakhtiyorovkamoliddin:uMNUimHTbP6TgGic@backend.ptdvabs.mongodb.net/?retryWrites=true&w=majority&appName=backend`;
 
 const start_app = async () => {
   try {

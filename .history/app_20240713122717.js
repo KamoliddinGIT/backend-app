@@ -1,21 +1,13 @@
-require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const postModel = require("./models/post.model");
-
 const app = express();
 
-app.use(express.json());
-
-app.get("/", async (req, res) => {
-  try {
-    const allPosts = await postModel.find();
-    res.status(200).json(allPosts);
-  } catch (error) {
-    res.status(500).json(error);
-  }
+app.get("/", (req, res) => {
+  
 });
+
+app.use(express.json());
 
 app.post("/", async (req, res) => {
   try {
@@ -39,8 +31,10 @@ app.put("/:id", (req, res) => {
   res.json({ id, person });
 });
 
-const PORT = process.env.PORT || 5000;
-const DB_URL = `mongodb+srv://bakhtiyorovkamoliddin:uMNUimHTbP6TgGic@backend.ptdvabs.mongodb.net/?retryWrites=true&w=majority&appName=backend`;
+const DB_URL =
+  "mongodb+srv://bakhtiyorovkamoliddin:uMNUimHTbP6TgGic@backend.ptdvabs.mongodb.net/?retryWrites=true&w=majority&appName=backend";
+
+const PORT = 5000;
 
 const start_app = async () => {
   try {

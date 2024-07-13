@@ -1,30 +1,25 @@
-require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const postModel = require("./models/post.model");
-
 const app = express();
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "hello sire!",
+    name: "Kamoliddin",
+    surname: "bakhtiyorov",
+  });
+});
 
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-  try {
-    const allPosts = await postModel.find();
-    res.status(200).json(allPosts);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
 app.post("/", async (req, res) => {
-  try {
+  try{
     const { title, body } = req.body;
     const newPost = await postModel.create({ title, body });
     res.status(201).json(newPost);
-  } catch (error) {
-    res.status(500).json(error);
   }
+  catch(error)
 });
 
 app.delete("/:id", (req, res) => {
@@ -39,8 +34,10 @@ app.put("/:id", (req, res) => {
   res.json({ id, person });
 });
 
-const PORT = process.env.PORT || 5000;
-const DB_URL = `mongodb+srv://bakhtiyorovkamoliddin:uMNUimHTbP6TgGic@backend.ptdvabs.mongodb.net/?retryWrites=true&w=majority&appName=backend`;
+const DB_URL =
+  "mongodb+srv://bakhtiyorovkamoliddin:uMNUimHTbP6TgGic@backend.ptdvabs.mongodb.net/?retryWrites=true&w=majority&appName=backend";
+
+const PORT = 5000;
 
 const start_app = async () => {
   try {

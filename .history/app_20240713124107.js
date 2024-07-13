@@ -44,7 +44,9 @@ const DB_URL = `mongodb+srv://bakhtiyorovkamoliddin:uMNUimHTbP6TgGic@backend.ptd
 
 const start_app = async () => {
   try {
-    await mongoose.connect(DB_URL).then(() => console.log("connected DB"));
+    await mongoose
+      .connect(process.env.DB_URL)
+      .then(() => console.log("connected DB"));
     app.listen(PORT, () =>
       console.log(`listening on - http://localhost:${PORT}`)
     );
